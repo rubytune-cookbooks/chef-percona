@@ -9,7 +9,7 @@ when "debian"
 
   apt_repository "percona" do
     uri "http://repo.percona.com/apt"
-    distribution node['lsb']['codename']
+    distribution node['percona']['distribution_codename'] || node['lsb']['codename']
     components ['main']
     keyserver node["percona"]["keyserver"]
     key "1C4CBDCDCD2EFD2A"
